@@ -1,0 +1,11 @@
+*.png
+*.jpg
+*.jpeg
+*.xml
+*.json
+*.chunk
+*.pyc
+__pycache__
+sample/
+weights/
+Data/
