@@ -1,7 +1,7 @@
 import torch.nn as nn
 from model.se_block import SEBlock
 import numpy as np
-
+import torch
 
 def conv_bn(in_channels, out_channels, kernel_size, stride, padding, groups=1):
     result = nn.Sequential()

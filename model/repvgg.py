@@ -1,7 +1,5 @@
 import torch.nn as nn
 import numpy as np
-import torch
-import copy
 from model.repvgg_block import RepVGGBlock
 
 class RepVGG(nn.Module):
