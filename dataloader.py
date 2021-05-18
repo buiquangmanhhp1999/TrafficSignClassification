@@ -71,7 +71,7 @@ class TrafficSignDataset(Dataset):
             ax.imshow(img)
             ax.grid(False)
             ax.axis('off')
-            ax.set_title('Label: '+ str(np.argmax(self.labels[r])))
+            ax.set_title('Label: '+ str(self.labels[r]))
 
 
 class Collator(object):
