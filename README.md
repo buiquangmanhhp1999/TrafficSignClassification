@@ -2,7 +2,7 @@
 Turtorial: [Traffic Sign Recognition with RepVGG](https://viblo.asia/p/nhan-dien-bien-bao-giao-thong-cung-repvgg-gDVK2ene5Lj)
 ## 1. Download repository
 ```
-git clone
+git clone https://github.com/buiquangmanhhp1999/TrafficSignClassification.git
 ```
 ## 2. Unzip file Data.zip
 ```
