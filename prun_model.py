@@ -140,11 +140,11 @@ class Pruning(object):
 
         # compute sparsity of the model
         _, _, sparsity = self.measure_global_sparsity(conv2d_use_mask=False)
-        print('The model of sparsity: {.2f} '.format(sparsity))
+        print('The model of sparsity: {:.2f} '.format(sparsity))
 
         # compute the original model of acc on validation data
         val_loss, val_acc = self.validate()
-        print('Before pruning: Loss: {.2f} Acc: {.2f}'.format(val_loss, val_acc))
+        print('Before pruning: Loss: {:.2f} Acc: {:.2f}'.format(val_loss, val_acc))
 
         for i in range(self.prunning_num_iters):
             print('--------------------------------------------------------------------------')
@@ -170,10 +170,10 @@ class Pruning(object):
             val_loss, val_acc = self.validate()
             print("==========================================================================")
             print('After pruning:')
-            print('Loss: {.2f} Acc: {.2f}'.format(val_loss, val_acc))
+            print('Loss: {:.2f} Acc: {:.2f}'.format(val_loss, val_acc))
 
             _, _, sparsity = self.measure_global_sparsity(conv2d_use_mask=True)
-            print('The model of sparsity: {.2f} '.format(sparsity))
+            print('The model of sparsity: {:.2f} '.format(sparsity))
             print("==========================================================================")
 
             # fine-tuning
@@ -181,10 +181,10 @@ class Pruning(object):
             self.fine_tune()
 
             val_loss, val_acc = self.validate()
-            print("val_loss: {:.4f}, val_acc: {:.4f}".format(val_loss, val_acc))
+            print("val_loss: {:.2f}, val_acc: {:.2f}".format(val_loss, val_acc))
 
             _, _, sparsity = self.measure_global_sparsity(conv2d_use_mask=True)
-            print('The model of sparsity: {.2f} '.format(sparsity))
+            print('The model of sparsity: {:.2f} '.format(sparsity))
             print("==============================================================================")
 
             if val_acc > best_acc:
@@ -194,10 +194,10 @@ class Pruning(object):
         self.remove_parameters()
         print('Final results: ')
         val_loss, val_acc = self.validate()
-        print("val_loss: {:.4f}, val_acc: {:.4f}".format(val_loss, val_acc))
+        print("val_loss: {:.2f}, val_acc: {:.2f}".format(val_loss, val_acc))
 
         _, _, sparsity = self.measure_global_sparsity(conv2d_use_mask=False)
-        print('The model of sparsity: {.2f} '.format(sparsity))
+        print('The model of sparsity: {:.2f} '.format(sparsity))
 
         # save final weights
         torch.save(self.model.state_dict(), './weights/final_prunned_mode.pth.tar')
@@ -266,4 +266,5 @@ class Pruning(object):
                 except:
                     pass
 
-        
+
+Pruning().iterative_pruning()
